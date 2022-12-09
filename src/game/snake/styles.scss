@@ -1,0 +1,10 @@
+div.snake{
+    div.snake-dot{
+        background: black;
+        width: 2%;
+        height: 2%;
+        position: absolute;
+        z-index: 2; 
+        border: 1px white solid;      
+    }
+}

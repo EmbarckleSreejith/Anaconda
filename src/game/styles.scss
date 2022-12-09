@@ -1,0 +1,27 @@
+div.game{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding:2%;
+    flex-direction: column;
+    background-color: rgb(238, 150, 78);
+    div.game-box{
+        width: 500px;
+        height: 500px;
+        border: 5px dashed black;
+        position: relative;
+        margin-bottom: 30px;    
+        background-color: rgb(80, 41, 10);;    
+    }
+    div.controlers{
+        display: flex;
+        > button.play-button{
+            background-color: rgb(40, 169, 243);
+            border-radius: 3px;
+            border: 1px solid rgb(40, 169, 243);
+            width: 80px;
+            height: 30px;
+            cursor: pointer;
+    }         
+    }
+}

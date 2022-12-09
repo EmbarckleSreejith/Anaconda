@@ -1,0 +1,48 @@
+div.home {
+  position: relative;
+  div.lottie-home-snake {
+    z-index: -1;
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+  }
+  div.start-lottie-div {
+   
+    position: absolute;
+    margin: auto;
+    z-index: 2;
+    margin-left: 37%;
+    margin-top: 5%;
+    div.start-lottie {   
+      width: 60%;
+    }
+  }
+  div.start-game {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    height: 100vh;
+
+    > button {
+      cursor: pointer;
+      width: 200px;
+      height: 40px;
+      background-color: rgb(152, 250, 191);
+      border: 1px solid #175a1a;
+      box-shadow: 10px 8px 83px 50px #175a1a;
+      font-size: 20px;
+      font-weight: bolder;
+      color: rgb(3, 59, 3);
+      border-style: groove;
+      border-radius: 3px;
+      &:focus {
+        background-color: rgb(101, 221, 31);
+      }
+    }
+  }
+}
+
+.display-none{
+  display: none;
+}
