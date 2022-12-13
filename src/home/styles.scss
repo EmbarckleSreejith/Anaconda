@@ -1,5 +1,5 @@
 div.home {
-  position: relative;
+  // position: relative;
   div.lottie-home-snake {
     z-index: -1;
     position: absolute;
@@ -7,13 +7,12 @@ div.home {
     height: 100vh;
   }
   div.start-lottie-div {
-   
     position: absolute;
     margin: auto;
     z-index: 2;
     margin-left: 37%;
     margin-top: 5%;
-    div.start-lottie {   
+    div.start-lottie {
       width: 60%;
     }
   }
@@ -36,13 +35,80 @@ div.home {
       color: rgb(3, 59, 3);
       border-style: groove;
       border-radius: 3px;
+
       &:focus {
         background-color: rgb(101, 221, 31);
       }
     }
   }
+  div.modal-box {
+    position: fixed;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    backdrop-filter: blur(10px);
+    left: 0;
+    top: 0;
+    animation-name: modal;
+    animation-duration: 0.7s;
+   
+
+    @keyframes modal {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+    div.cross-box {
+      display: flex;
+      justify-content: end;
+      padding: 1% 2% 1% 1%;
+      opacity: 0.5;
+      svg {
+        font-size: 35px;
+        cursor: pointer;
+      }
+    }
+    div.dialouge-box-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      div.dialouge-box {
+        width: 60%;
+        height: 40%;
+        background-color: rgb(53, 65, 11);
+        margin-bottom: 10%;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        border-radius: 5px;
+        z-index: 2;
+        button.button-single {
+          width: 30%;
+          border-radius: 4px;
+          height: 30px;
+          cursor: pointer;
+          border: none;
+          font-weight: bolder;
+        }
+
+        button.button-multy {
+          width: 30%;
+          height: 30px;
+          border-radius: 4px;
+          cursor: pointer;
+          border: none;
+          font-weight: bolder;
+        }
+      }
+    }
+  }
 }
 
-.display-none{
+.display-none {
   display: none;
 }

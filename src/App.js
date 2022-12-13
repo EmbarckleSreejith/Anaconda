@@ -1,4 +1,4 @@
-import "./App.css";
+import "./App.scss";
 import { Game } from "./game";
 import { Home } from "./home";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -11,6 +11,7 @@ function App() {
           <Route path="/game" element={<Game />}></Route>         
         </Routes>
       </BrowserRouter>
+      
     </div>
   );
 }
