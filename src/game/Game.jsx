@@ -1,23 +1,28 @@
-import { useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { Food } from "./food";
-import { Snake } from "./snake";
-import { useNavigate } from "react-router-dom";
+import { Snake1, Snake2 } from "./snake";
+import { useLocation, useNavigate } from "react-router-dom";
 import "./styles.scss";
-import { useCallback } from "react";
-let move = false;
+import { useStore } from "../store/Store";
 export const Game = () => {
-  const [snake, setSnake] = useState([
+  const [snake1, setSnake1] = useState([
     [0, 0],
     [0, 2],
     [0, 4],
   ]);
+  const [snake2, setSnake2] = useState([
+    [98, 94],
+    [98, 96],
+    [98, 98],
+  ]);
   const [play, setPlay] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation();
   const [speed, setSpeed] = useState(500);
   const [timeoutId, setTimeoutId] = useState(0);
-
+  
   const increaseBy = 2;
-
+  
   // ++++++++++ Food ++++++++++ //
   const randomFood = () => {
     setSpeed(speed - 2);
@@ -117,7 +122,7 @@ export const Game = () => {
       head[0] === food[0] && head[1] === food[1]
         ? setFood(randomFood())
         : dots.shift();
-      setSnake([...dots]);
+      setSnake1([...dots]);
       currentDirection.current = nextDirection.current;
     }
   };
@@ -126,21 +131,22 @@ export const Game = () => {
   const gameOver = () => {
     alert("gameOver");
     navigate("/");
-    console.log("gameOver");
   };
 
   useEffect(() => {
-    if (!play) {
-      clearTimeout(timeoutId);
-      // move = true;
-      setTimeoutId(setTimeout(() => snakeMove(snake), speed));
-    }
-  }, [snake, play]);
+    if (!play) {      
+      clearTimeout(timeoutId);     
+      setTimeoutId(setTimeout(() => snakeMove(snake1), speed));
+    }   
+  }, [snake1, play]);
+
+  
 
   return (
     <div className="game">
       <div className="game-box">
-        <Snake snake={snake} />
+        <Snake1 snake={snake1} />
+        {location.state ? <Snake2 snake={snake2}/> :null}
         <Food food={food} />
       </div>
       <div className="controlers">

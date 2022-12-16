@@ -6,19 +6,28 @@ import { IoCloseOutline } from "react-icons/io5";
 import "./styles.scss";
 
 export const Home = () => {
-  const [start, setStart] = useState(true);
+  const [start, setStart] = useState(false);
   const [open,setOpen] = useState(false);
   const startLottie = useRef(null);
-  const handleStartButton = () => {
-    setStart(false);
+  const [isMultiPlayer,setIsMultiPlayer] = useState(false);
+
+  const navigate = useNavigate();
+
+  const handleSinglePlayer = () => {
+    setIsMultiPlayer(false)
+    setStart(true);
     startLottie.current.play();      
   };
-  const navigate = useNavigate();
+  const handleMultiplayer = () =>{
+    // setIsMultiPlayer(true)
+    // setStart(false);
+    // startLottie.current.play();   
+    navigate('/form');
+  }
   const handleOpen =()=>{
     setOpen(true);
   }
-  const handleClose=()=>{
-    console.log('hi')
+  const handleClose=()=>{    
     setOpen(false);
   }
   return (
@@ -30,13 +39,13 @@ export const Home = () => {
         loop
         background="lightGreen"       
       />
-      <div className={start ? "display-none": "start-lottie-div" }>
+      <div className={start ? "start-lottie-div" : "display-none" }>
         <Player
           src="https://assets2.lottiefiles.com/temp/lf20_JbbDjN.json"
           className="start-lottie"
           onEvent={(event) => {
             if (event === PlayerEvent.Complete) {
-              navigate("/game");
+              navigate("/game",{state:isMultiPlayer});
             }
           }}
           ref={startLottie}
@@ -57,8 +66,8 @@ export const Home = () => {
         </div>
         <div className="dialouge-box-container">
           <div className="dialouge-box">
-            <button className="button-single" onClick={handleStartButton}>Single Player</button>
-            <button className="button-multy">Multi Player</button>
+            <button className="button-single" onClick={handleSinglePlayer}>Single Player</button>
+            <button className="button-multy" onClick={handleMultiplayer} >Multi Player</button>
           </div>
         </div>
       </div>

@@ -5,6 +5,7 @@ div.snake{
         height: 2%;
         position: absolute;
         z-index: 2; 
-        border: 1px white solid;      
+        border:1px white solid;
+        box-sizing: border-box;      
     }
 }

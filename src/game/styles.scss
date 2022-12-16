@@ -7,11 +7,11 @@ div.game{
     background-color: rgb(238, 150, 78);
     div.game-box{
         width: 500px;
-        height: 500px;
-        border: 5px dashed black;
+        height: 500px; 
+        border: 5px dashed rgb(0, 0, 0);
         position: relative;
         margin-bottom: 30px;    
-        background-color: rgb(80, 41, 10);;    
+        background-color: rgb(80, 41, 10);   
     }
     div.controlers{
         display: flex;
